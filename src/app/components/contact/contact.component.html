@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Contact Info</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" />
+        <mat-error *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" />
+        <mat-error *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <input matInput placeholder="Occupation" formControlName="occupation" />
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <input matInput placeholder="Subject" formControlName="subject" />
+        <mat-error *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+          Subject is required
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <textarea matInput placeholder="Content" formControlName="content" rows="5"></textarea>
+        <mat-error *ngIf="contactForm.get('content')?.invalid && contactForm.get('content')?.touched">
+          Content must be between 10 and 255 characters
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <button type="submit" [disabled]="contactForm.invalid" mat-raised-button color="accent">
+        Submit
+      </button>
+    </form>
+  </div>
+  
